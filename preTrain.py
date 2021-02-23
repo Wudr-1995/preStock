@@ -1,14 +1,9 @@
 from myDataSet import myDataSet
 # import torchsnooper
-import matplotlib.pyplot as plt
 import torch.nn as nn
-from torch.optim import SGD
 import torch.utils.data as Data
 import torch
 import time
-import copy
-from torch.optim import Adam
-from torch.optim import Adadelta
 import argparse
 from preModel import preModel
 import os

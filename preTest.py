@@ -1,4 +1,3 @@
-from torch.utils.data.dataloader import DataLoader
 from preModel import preModel
 from myDataSet import myDataSet
 import time

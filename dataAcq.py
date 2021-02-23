@@ -1,7 +1,6 @@
 import pandas as pd
 import pandas_datareader.data as web   
 import datetime as dt
-import numpy as np
 
 start = dt.datetime(2000, 1, 1)
 end = dt.datetime.today()
