@@ -5,9 +5,9 @@ class preModel(nn.Module):
 	def __init__(self):
 		super(preModel, self).__init__()
 		self.regression = nn.Sequential(
-			nn.Linear(41000, 4100),
+			nn.Linear(7920, 4000),
 			nn.ReLU(),
-			nn.Linear(4100, 2000),
+			nn.Linear(4000, 2000),
 			nn.ReLU(),
 			nn.Linear(2000, 1000),
 			nn.ReLU(),
@@ -20,6 +20,7 @@ class preModel(nn.Module):
 	
 	def forward(self, x):
 		x = x.float()
+		x = x.view(x.size(0), -1)
 		pre = self.regression(x)
 		return pre
 
