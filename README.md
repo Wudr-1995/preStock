@@ -8,4 +8,5 @@
 3. preTrain.py is training script.
 4. preTest.py is testing script.
 5. Bash script in ./data/ is for sample preparing.
+6. dataAcp.py is script for data acquization.
 
