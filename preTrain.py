@@ -18,10 +18,10 @@ def get_parser():
 	parser.add_argument("--modelInput", default='./model.pkl')
 	parser.add_argument("--outPath", default='./model.pkl')
 	parser.add_argument("--epoch", type=int)
-	parser.add_argument("--learnRate", type=int, default=0.0003)
+	parser.add_argument("--learnRate", type=float, default=0.0003)
 	return parser
 
-def trainModel(model, dataLoader, trainRate, criterion, optimizer, nEpoch, outPath):
+def trainModel(model, dataLoader, criterion, optimizer, nEpoch, outPath):
 	
 	bestLoss = 1000
 	trainLossAll = []
@@ -72,6 +72,6 @@ if __name__ == "__main__":
 		num_workers=1
 	)
 
-	optimizer = torch.optim.Adam(initNet.parameters(), lr=0.0003)
+	optimizer = torch.optim.Adam(initNet.parameters(), lr=args.learnRate)
 	lossFunc = nn.MSELoss()
-	model, process = trainModel(initNet, trainLoader, 0.0003, lossFunc, optimizer, args.epoch, args.outPath)
+	model, process = trainModel(initNet, trainLoader, lossFunc, optimizer, args.epoch, args.outPath)

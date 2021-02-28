@@ -5,7 +5,9 @@ class preModel(nn.Module):
 	def __init__(self):
 		super(preModel, self).__init__()
 		self.regression = nn.Sequential(
-			nn.Linear(7920, 4000),
+			nn.Linear(17360, 8000),
+			nn.ReLU(),
+			nn.Linear(8000, 4000),
 			nn.ReLU(),
 			nn.Linear(4000, 2000),
 			nn.ReLU(),

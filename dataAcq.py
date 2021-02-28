@@ -2,7 +2,7 @@ import pandas as pd
 import pandas_datareader.data as web   
 import datetime as dt
 
-start = dt.datetime(2000, 1, 1)
+start = dt.datetime(2011, 1, 1)
 end = dt.datetime.today()
 codes = open('./data/stockCode.txt')
 codeData = pd.DataFrame()
@@ -13,13 +13,13 @@ for code in codes.readlines():
 	try:
 		tmp = web.DataReader(code, 'yahoo', start, end)
 		tmp = tmp.Close.to_frame()
-		tmp.columns=[code]
-		if len(tmp) > 4000:
+		tmp.columns = [code]
+		if len(tmp) > 2000:
 			codeData = pd.concat([codeData, tmp], axis=1)
 	except:
 		print('No ' + code)
 codeData = codeData.dropna()
-codeData.to_csv("./data/PriceAna.csv")
+codeData.to_csv("./data/Price11To21.csv")
 
 
 # import tushare as ts
